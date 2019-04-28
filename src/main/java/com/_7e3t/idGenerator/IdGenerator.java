@@ -19,6 +19,13 @@ public class IdGenerator {
         this.algo = algo;
     }
 
+    public IdGenerator(IdGeneratorAlgo algo, String ... previousIds) {
+        this.algo = algo;
+        for (int i = 0; i < previousIds.length; i++) {
+            ids.add(previousIds[i]);
+        }
+    }
+
     public IdGenerator(IdGeneratorAlgo idGeneratorAlgo, DataSourceInfo dataSourceInfo) {
         this(idGeneratorAlgo);
 
