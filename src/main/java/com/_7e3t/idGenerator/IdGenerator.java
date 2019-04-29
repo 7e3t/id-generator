@@ -43,18 +43,17 @@ public class IdGenerator {
     }
 
     public String generate() {
-        int initLen = ids.size();
-        StringBuilder newId = new StringBuilder();
-        while(ids.size() == initLen) {
+        StringBuilder newId;
+        do {
+            newId = new StringBuilder();
             newId.append(algo.getPrefix());
             if (algo.getContains().size() > 0) {
                 for (int i = 0; i < algo.getLen(); i++) {
-                    newId.append(algo.getContains().get(Double.valueOf((Math.random()*Integer.MAX_VALUE)).intValue()%algo.getContains().size()));
+                    newId.append(algo.getContains().get(Double.valueOf((Math.random() * Integer.MAX_VALUE)).intValue() % algo.getContains().size()));
                 }
             }
             newId.append(algo.getSuffix());
-            ids.add(newId.toString());
-        }
+        } while (!ids.add(newId.toString()));
         return newId.toString();
     }
 
