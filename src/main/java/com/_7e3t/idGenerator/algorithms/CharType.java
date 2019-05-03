@@ -1,4 +1,4 @@
-package com._7e3t.idGenerator.forms;
+package com._7e3t.idGenerator.algorithms;
 
 public enum CharType {
     NUMBER(
